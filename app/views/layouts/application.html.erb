@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Protocolos</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+  <div class="container">
+    <% if user_signed_in? %>
+        <h3>Sistema de Protocolos</h3>
+        <%= render 'layouts/user_navbar' %>
+    <% else %>
+        <nav>
+          <h3>Sistema de Protocolos</h3>
+          <!--table>
+            <tr>
+              <td>
+                < %= link_to "Login", new_user_sessions_path %>
+              </td>
+            </tr>
+          </table-->
+        </nav>
+    <% end %>
+  </div>
+</header>
+
+<br>
+<br>
+<div class="content">
+  <% if notice.present? %>
+      <p id="notice"><%= notice %></p>
+  <% end %>
+  <% if alert.present? %>
+      <p id="alert"><%= alert %></p>
+  <% end %>
+  <%= yield %>
+</div>
+</body>
+</html>

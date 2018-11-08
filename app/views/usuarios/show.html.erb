@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @usuario.nome %>
+</p>
+
+<p>
+  <strong>E-mail:</strong>
+  <%= @usuario.login %>
+</p>
+
+<p>
+
+<% if current_user.id == @usuario.id %>
+    <%= link_to 'Editar', edit_usuario_path(@usuario) %>
+<% end %>
+<br>
+<%= link_to 'Voltar', usuarios_path %>

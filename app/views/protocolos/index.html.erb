@@ -1,0 +1,62 @@
+<script type="text/javascript">
+    $(function() {
+        oTable = $('#protocolos').dataTable({
+            "iDisplayLength": 15,
+            "sPaginationType":"full_numbers",
+            "bJQueryUI":true,
+            "aaSorting": [[0, "desc"]],
+            "bLengthChange":false,
+            "oLanguage":{
+                "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                "sInfoFiltered": "Filtrado de _MAX_ registros no total",
+                "sZeroRecords": "Sem resultados",
+                "sInfoEmpty": "",
+                "sSearch": "Buscar",
+                "oPaginate": {
+                    "sFirst": "<<",
+                    "sPrevious": "<",
+                    "sNext": ">",
+                    "sLast": ">>"
+                }
+            }
+        });
+    });
+</script>
+
+
+<h2>Protocolos</h2>
+
+
+<%= link_to 'Criar Novo Protocolo', new_protocolo_path %>
+<br>
+
+<table id="protocolos" class="display" width="80%">
+  <thead>
+  <tr>
+    <th style = display:none>ID</th>
+    <th align="left">Código</th>
+    <th align="left">Enviar para</th>
+    <th align="left">Data de expedição</th>
+    <th align="left">Expedidor</th>
+    <th align="left">Ações</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @protocolos.each do |protocolos| %>
+      <tr>
+	<td style = display:none><%= protocolos.id %></td>
+	<td><%= protocolos.codigo_protocolo.to_s + "/" + protocolos.created_at.year.to_s %></td>
+	<td><%= protocolos.enviar_para %></td>
+	<td><%= protocolos.created_at.day.to_s +  "/" + protocolos.created_at.month.to_s  +  "/" + protocolos.created_at.year.to_s %></td>
+	<td><%= protocolos.usuario.nome %></td>
+	<td><%= link_to 'Imprimir', protocolo_path(protocolos, format: 'pdf'),target: "_blank"  %>
+	  <%= link_to 'Editar',edit_protocolo_path(protocolos) %></td>
+      </tr>
+
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+

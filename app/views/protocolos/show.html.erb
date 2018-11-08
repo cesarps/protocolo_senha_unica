@@ -1,0 +1,19 @@
+<p>
+  <strong>Enviar para:</strong>
+  <%= @protocolo.enviar_para %>
+</p>
+
+<p>
+  <strong>Observação:</strong>
+  <%= @protocolo.observacao %>
+</p>
+
+
+<p>
+  <strong>Código protocolo:</strong>
+  <%= @protocolo.codigo_protocolo %>
+</p>
+
+<%= link_to 'Imprimir', protocolo_path(@protocolo, format: 'pdf') %>
+<%= link_to 'Editar', edit_protocolo_path(@protocolo) %> |
+<%= link_to 'Voltar', protocolos_path %>

@@ -1,0 +1,18 @@
+<fieldset>
+  <legend> Alteração de senha </legend>
+  <%= form_for @usuario, :url => senha_reset_path(params[:id]) do |f| %>
+      <div class="field">
+        <%= f.label :senha, "Digite uma senha" %>
+        <%= f.password_field :senha %>
+      </div>
+<br>
+      <div class="field">
+        <%= f.label :senha_confirmation, "Confirme a senha" %>
+        <%= f.password_field :senha_confirmation %>
+      </div>
+<br>
+      <div class="actions">
+        <%= f.submit "Enviar" %>
+      </div>
+  <% end %>
+</fieldset>

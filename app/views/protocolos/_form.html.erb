@@ -1,0 +1,52 @@
+<%= form_for(@protocolo) do |f| %>
+  <% if @protocolo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@protocolo.errors.count, "error") %> prohibited this protocolo from being saved:</h2>
+
+      <ul>
+      <% @protocolo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <p>
+      <%= f.label :enviar_para %><br />
+      <%= f.text_area :enviar_para,
+                      :cols=>40,
+                      :rows=>10 %>
+    </p>
+    <p>
+
+      <% if @protocolo.observacao %>
+          Assunto
+	<span style="padding-left: 5em;">
+	<%= text_field_tag 'counter_resumo',0,
+                       :readonly=> true,
+                       :size=> "5",
+                       :value=> "#{500 - @protocolo.observacao.length}" %> caracteres restantes
+	</span><br>
+
+      <% else %>
+          Assunto
+	<span style="padding-left: 5em;">
+	<%= text_field_tag 'counter_resumo',0,
+                       :readonly=> true,
+                       :size=> "5",
+                       :value=> "#{500}" %> caracteres restantes
+	 </span><br />
+      <% end %>
+
+      <%= f.text_area :observacao,
+                      :cols=> 40,
+                      :rows=> 10,
+                      :onkeyup=> "fieldSize(this, counter_resumo, 500)" %>
+    </p>
+
+
+    <%= f.submit 'Salvar' %>
+
+<% end %>
+
+<%= link_to 'Voltar', protocolos_path %>

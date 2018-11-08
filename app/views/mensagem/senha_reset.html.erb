@@ -1,0 +1,16 @@
+<p> Ola <%= @usuario.nome %></p>
+
+<p> Seu login é <%=  @usuario.login %></p>
+
+
+<p> Clique neste <a href="http://bernard.icb.usp.br/protocolos/senha_resets/<%= @usuario.senha_reset_token %>/edit"> link </a>
+para fazer a alteração da senha. </p>
+
+<!-- apagar essa linha na hora de subir e descomentar a linha anterior -->
+<!-- p> Clique neste <a href="http://localhost:3000/senha_resets/< %= @usuario.senha_reset_token %>/edit"> link </a>   para fazer a alteração da senha. </p-->
+
+
+
+<p> Se você não solicitou essa alteração, descarte este e-mail. </p>
+<hr>
+<p> Mensagem gerada automaticamene. Não responder. </p>
