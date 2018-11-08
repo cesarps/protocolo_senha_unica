@@ -44,6 +44,12 @@ gem 'pdf-inspector', require: 'pdf/inspector'
 
 gem 'sdoc', require: false
 
+#senha unica
+gem 'senhaunica'
+gem 'oauth'
+
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -11,28 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011191303) do
-
-  create_table "protocolos", force: :cascade do |t|
-    t.text     "enviar_para",      limit: 65535
-    t.text     "observacao",       limit: 65535
-    t.date     "dt_expedicao"
-    t.integer  "ano",              limit: 4
-    t.integer  "codigo_protocolo", limit: 4
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.integer  "usuario_id",       limit: 4
-  end
-
-  create_table "usuarios", force: :cascade do |t|
-    t.string   "nome",                limit: 255
-    t.string   "login",               limit: 255
-    t.string   "password_digest",     limit: 255
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.string   "auth_token",          limit: 255
-    t.string   "senha_reset_token",   limit: 255
-    t.datetime "senha_reset_sent_at"
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end
