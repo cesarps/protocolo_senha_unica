@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+
+=begin
   def require_authentication
     unless user_signed_in?
       redirect_to new_user_sessions_path,
@@ -23,5 +25,9 @@ class ApplicationController < ActionController::Base
   def user_session
     UserSession.new(session)
   end
+
+=end
+
+
 
 end
