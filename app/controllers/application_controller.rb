@@ -7,6 +7,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
+
+
+  include WelcomeHelper
+  include LogsHelper
+
+
 =begin
   def require_authentication
     unless user_signed_in?
