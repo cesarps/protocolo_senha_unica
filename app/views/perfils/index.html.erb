@@ -1,0 +1,24 @@
+<h1>Perfis</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th class="text-center">Tipo</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @perfils.each do |perfil| %>
+      <tr>
+        <td><%= perfil.tipo %></td>
+        <td class="text-center"><%= link_to 'Mostrar', perfil, class: "btn btn-default" %></td>
+        <td class="text-center"><%= link_to 'Editar', edit_perfil_path(perfil), class: "btn btn-primary active" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Perfil', new_perfil_path, class: "btn btn-primary active" %>
