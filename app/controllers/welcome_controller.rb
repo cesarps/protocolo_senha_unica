@@ -18,11 +18,16 @@ class WelcomeController < ApplicationController
     carregaperfils
 
     addlog("Fez login no sistema")
+
+    redirect_to welcome_callback_path, notice: "Login feito com sucesso"
+
+=begin
     if session[:perfil].include? "Administrador"
       redirect_to colecao_index_path, notice: "Login feito com sucesso"
     else
       redirect_to colecao_index_path, notice: "Area restrita ao administrador"
     end
+=end
   end
 
   def tratauser
@@ -84,7 +89,7 @@ class WelcomeController < ApplicationController
   def destroy
     addlog("Saiu do sistema")
     log_out
-    redirect_to colecao_index_path
+    redirect_to logout_path
   end
 
 
