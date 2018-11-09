@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  delegate :current_user, :user_signed_in?, to: :user_session
-  helper_method :current_user, :user_signed_in?
+  #delegate :current_user, :user_signed_in?, to: :user_session
+  #helper_method :current_user, :user_signed_in?
 
   protect_from_forgery with: :exception
 
