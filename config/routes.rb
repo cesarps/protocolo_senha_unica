@@ -1,19 +1,23 @@
 Rails.application.routes.draw do
 
-  resources :protocolos
+  get 'welcome/login'
+  get 'welcome/callback'
+  get 'logout' => 'welcome#destroy', as: 'logout'
   get 'home/index'
 
+
+  resources :protocolos
+  resources :permitidos
+  resources :perfils
+  resources :logs
   resources :usuarios
-  resources :senha_resets
-  #resources :protocolos
 
 
-  resource :user_sessions, only: [:create, :new, :destroy]
+  #resources :senha_resets
+
 
   #root 'user_sessions#new'
-  #root 'home#index'
-
- root 'user_sessions#new'
+  root 'welcome#login'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
