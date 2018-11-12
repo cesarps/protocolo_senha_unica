@@ -9,20 +9,14 @@
 <body>
 <header>
   <div class="container">
-    <% if user_signed_in? %>
+    <% if !session[:login].blank? %>
         <h3>Sistema de Protocolos</h3>
-        <%= render 'layouts/user_navbar' %>
-    <% else %>
-        <nav>
-          <h3>Sistema de Protocolos</h3>
-          <!--table>
-            <tr>
-              <td>
-                < %= link_to "Login", new_user_sessions_path %>
-              </td>
-            </tr>
-          </table-->
+        <nav class="navbar navbar-default navbar-static-top" >
+          <div class="container">
+
+          </div>
         </nav>
+        <%= render 'layouts/user_navbar' %>
     <% end %>
   </div>
 </header>

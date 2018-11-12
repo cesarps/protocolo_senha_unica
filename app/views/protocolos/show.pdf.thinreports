@@ -2,12 +2,12 @@ report.start_new_page do |page|
     page.values codigo_protocolo: @protocolo.codigo_protocolo.to_s + "/" + @protocolo.created_at.year.to_s,
                 enviar_para: @protocolo.enviar_para,
                 data_expedicao: @protocolo.created_at.day.to_s +  "/" + @protocolo.created_at.month.to_s  +  "/" + @protocolo.created_at.year.to_s,
-                usuario_name: @protocolo.usuario.nome,
+                usuario_name: @protocolo.usuario.nomeUsuario,
                 observacao: @protocolo.observacao,
                 codigo_baixo: @protocolo.codigo_protocolo.to_s + "/" + @protocolo.created_at.year.to_s,
                 enviar_baixo: @protocolo.enviar_para,
                 data_baixo: @protocolo.created_at.day.to_s +  "/" + @protocolo.created_at.month.to_s  +  "/" + @protocolo.created_at.year.to_s,
-                usuario_baixo: @protocolo.usuario.nome,
+                usuario_baixo: @protocolo.usuario.nomeUsuario,
                 observacaobaixo: @protocolo.observacao
 end
 

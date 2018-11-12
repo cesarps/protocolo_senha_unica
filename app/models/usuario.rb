@@ -1,10 +1,10 @@
 class Usuario < ActiveRecord::Base
   has_many :protocolos
 
-  has_many :tipo_vinculos
-  has_many :logs
+  has_many :tipo_vinculos, dependent: :destroy
+  has_many :logs, :dependent => :destroy
 
-  has_many :permitidos, dependent: :destroy
+  has_many :permitidos
   has_many :perfils, through: :permitidos
 
 

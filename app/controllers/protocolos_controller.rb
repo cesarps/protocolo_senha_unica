@@ -1,6 +1,8 @@
 class ProtocolosController < ApplicationController
   before_action :set_protocolo, only: [:show, :edit, :update, :destroy]
 
+  before_filter 'autenticado?'
+
   # GET /protocolos
   # GET /protocolos.json
   def index

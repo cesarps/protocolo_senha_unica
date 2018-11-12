@@ -1,5 +1,5 @@
 module ApplicationHelper
-
+=begin
   def error_tag(model, attribute)
     if model.errors.has_key? attribute
       content_tag(
@@ -9,5 +9,6 @@ module ApplicationHelper
       )
     end
   end
+=end
 
 end
