@@ -14,6 +14,6 @@
   <%= @protocolo.codigo_protocolo %>
 </p>
 
-<%= link_to 'Imprimir', protocolo_path(@protocolo, format: 'pdf') %>
+<%= link_to 'Imprimir', protocolo_path(@protocolo, format: 'pdf'),target: "_blank" %>
 <%= link_to 'Editar', edit_protocolo_path(@protocolo) %> |
 <%= link_to 'Voltar', protocolos_path %>
