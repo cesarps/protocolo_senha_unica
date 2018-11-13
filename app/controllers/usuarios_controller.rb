@@ -17,9 +17,7 @@ class UsuariosController < ApplicationController
   end
 
   def update
-
     addlog("Atualizando usuário")
-
     respond_to do |format|
       if @usuario.update(usuario_params)
         format.html { redirect_to usuarios_url, notice: 'Usuário alterado com sucesso.' }

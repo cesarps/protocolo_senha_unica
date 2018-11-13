@@ -33,28 +33,25 @@ class ProtocolosController < ApplicationController
   # POST /protocolos
   # POST /protocolos.json
   def create
-
     @protocolo = Protocolo.new(protocolo_params)
-
     @protocolo.usuario_id = current_user.id
-
     if Protocolo.all.count == 0
       @protocolo.codigo_protocolo = 1
     else
-        lastprotocolo = Protocolo.last!
-
-         if lastprotocolo.created_at.year < Date.today.year
-            @protocolo.codigo_protocolo = 1
-          else
-            @protocolo.codigo_protocolo = lastprotocolo.codigo_protocolo + 1
-          end
+      lastprotocolo = Protocolo.last!
+      if lastprotocolo.created_at.year < Date.today.year
+        @protocolo.codigo_protocolo = 1
+        addlog("Ano renovado")
+      else
+        @protocolo.codigo_protocolo = lastprotocolo.codigo_protocolo + 1
+      end
     end
-
     @protocolo.ano = Date.today.year
     @protocolo.dt_expedicao = Date.today
 
     respond_to do |format|
       if @protocolo.save
+        addlog("Protocolo criado")
         format.html { redirect_to @protocolo, notice: 'Protocolo foi criado.' }
         format.json { render :show, status: :created, location: @protocolo }
       else
@@ -69,6 +66,7 @@ class ProtocolosController < ApplicationController
   def update
     respond_to do |format|
       if @protocolo.update(protocolo_params)
+        addlog("Protocolo alterado")
         format.html { redirect_to @protocolo, notice: 'Protocolo foi atualizado.' }
         format.json { render :show, status: :ok, location: @protocolo }
       else
@@ -83,6 +81,7 @@ class ProtocolosController < ApplicationController
   def destroy
     @protocolo.destroy
     respond_to do |format|
+      addlog("Protocolo excluído: " + @protocolo.id.to_s)
       format.html { redirect_to protocolos_url, notice: 'Protocolo foi apagado.' }
       format.json { head :no_content }
     end
@@ -104,7 +103,7 @@ class ProtocolosController < ApplicationController
 
     protocolos.each do |protocolos|
       report.list.add_row do |row|
-        row.values name: protocolos.usuario.nome
+        row.values name: protocolos.usuario.nomeUsuario
         row.item(:name).style(:color, 'red') unless protocolos.done?
       end
     end
