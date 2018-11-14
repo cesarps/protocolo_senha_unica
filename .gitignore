@@ -19,7 +19,8 @@
 # Ignore database.yml
 /config/database.yml
 
-# ignore keyfiles
+# ignore keyfiles and database configuration
 /config/environment_variables.yml
 /config/initializers/environment_variables.rb
+
 
