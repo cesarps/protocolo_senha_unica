@@ -51,7 +51,7 @@
         <td><%= protocolos.created_at.day.to_s +  "/" + protocolos.created_at.month.to_s  +  "/" + protocolos.created_at.year.to_s %></td>
         <td><%= protocolos.usuario.nomeUsuario %></td>
         <td>
-          <%= link_to 'Mostrar', @protocolo %>
+          <%= link_to 'Mostrar', protocolos %>
           <%= link_to 'Editar',edit_protocolo_path(protocolos) %>
           <%= link_to 'Imprimir', protocolo_path(protocolos, format: 'pdf'),target: "_blank"  %>
         </td>

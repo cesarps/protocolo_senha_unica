@@ -16,7 +16,11 @@
 
           </div>
         </nav>
-        <%= render 'layouts/user_navbar' %>
+        <% if session[:perfil].include? "Administrador" %>
+            <%= render 'layouts/user_navbar' %>
+         <% else %>
+            <%= link_to "Sair", logout_path %>
+         <% end %>
     <% end %>
   </div>
 </header>

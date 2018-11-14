@@ -25,7 +25,7 @@ class WelcomeController < ApplicationController
     if session[:perfil].include? "Administrador"
       redirect_to home_index_path, notice: "Login feito com sucesso"
     else
-      redirect_to welcome_login_path, notice: "Area restrita ao administrador"
+      redirect_to home_index_path, notice: "Área restrita ao administrador"
     end
   end
 
